@@ -25,7 +25,7 @@ void write_data() {
 
     char data[500];
     getchar(); // flush newline
-    printf("Enter your note: ");
+    printf("Enter your note:\n ");
     fgets(data, sizeof(data), stdin);
     fprintf(fp, "%s", data);
     fclose(fp);
@@ -50,11 +50,11 @@ void read_data() {
 int main() {
     int choice;
     while (1) {
-        printf("\n Time-Based Access Locker\n");
+        printf(" Time-Based Access Locker\n");
         printf("1. Write to secure file\n");
         printf("2. Read secure file\n");
         printf("0. Exit\n");
-        printf("Choose: ");
+        printf("Choose:\n ");
         scanf("%d", &choice);
 
         if (!is_within_allowed_time()) {
@@ -63,13 +63,15 @@ int main() {
         }
 
         switch (choice) {
-            case 1: write_data(); break;
-            case 2: read_data(); break;
+            case 1: write_data();
+                break;
+            case 2: read_data(); 
+                break;
             case 0: printf(" Exiting...\n");
-              return 0;
-            default: printf(" Invalid option.\n");
+            return 0;
+            default:
+                printf(" Invalid option.\n");
+            return 0;
         }
     }
-
-    return 0;
 }
